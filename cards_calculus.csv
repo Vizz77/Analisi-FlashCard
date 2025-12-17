@@ -1,0 +1,93 @@
+# Fronte;Retro
+Regola del Prodotto: $(f \cdot g)'$;$f'(x)g(x) + f(x)g'(x)$
+Regola del Quoziente: $\left(\frac{f}{g}\right)'$;$\frac{f'(x)g(x) - f(x)g'(x)}{[g(x)]^2}$
+Regola della Catena (Chain Rule): $D[f(g(x))]$; $f'(g(x)) \cdot g'(x)$
+Derivata di $x^n$ (Regola della Potenza);$n x^{n-1}$
+Derivata di $\ln(x)$;$\frac{1}{x}$
+Derivata di $\ln(f(x))$ (Logaritmo Composto);$\frac{f'(x)}{f(x)}$
+Derivata di $e^x$;$e^x$
+Derivata di $e^{f(x)}$ (Esponenziale Composto);$e^{f(x)} \cdot f'(x)$
+Derivata di $a^x$ (con $a > 0$);$a^x \ln(a)$
+Derivata di $\sin(x)$;$\cos(x)$
+Derivata di $\cos(x)$;$-\sin(x)$
+Derivata di $\tan(x)$;$\sec^2(x)$ oppure $\frac{1}{\cos^2(x)}$
+Derivata di $\cot(x)$;$-\csc^2(x)$ oppure $-\frac{1}{\sin^2(x)}$
+Derivata di $\arcsin(x)$;$\frac{1}{\sqrt{1-x^2}}$
+Derivata di $\arccos(x)$;$-\frac{1}{\sqrt{1-x^2}}$
+Derivata di $\arctan(x)$;$\frac{1}{1+x^2}$
+Derivata di $\sqrt{x}$;$\frac{1}{2\sqrt{x}}$
+Derivata di $\sqrt{f(x)}$ (Radice Composta);$\frac{f'(x)}{2\sqrt{f(x)}}$
+Derivata di $|x|$;$\text{sgn}(x) = \frac{x}{|x|}$ (per $x \ne 0$)
+Derivata di $f(x)^{g(x)}$ (Esponenziale generalizzato);$f(x)^{g(x)} \left( g'(x)\ln(f(x)) + g(x)\frac{f'(x)}{f(x)} \right)$
+Integrale di $x^n$ (con $n \ne -1$);$\frac{x^{n+1}}{n+1} + C$
+Integrale di $\frac{1}{x}$;$\ln|x| + C$
+Formula integrazione per parti;$\int f(x)g'(x) dx = f(x)g(x) - \int f'(x)g(x) dx$
+Integrale di $e^x$;$e^x + C$
+Integrale generalizzato $\int \frac{f'(x)}{f(x)} dx$;$\ln|f(x)| + C$
+Integrale di $\sin(x)$;$-\cos(x) + C$
+Integrale di $\cos(x)$;$\sin(x) + C$
+Integrale di $\frac{1}{1+x^2}$;$\arctan(x) + C$
+Integrale di $\frac{1}{\sqrt{1-x^2}}$;$\arcsin(x) + C$
+Integrale di $\ln(x)$ (per parti);$x \ln(x) - x + C$
+Integrale di $\frac{1}{\sqrt{x}}$;$2\sqrt{x} + C$
+Integrale di $x e^x$ (per parti);$e^x(x-1) + C$
+Integrale di $\frac{1}{a^2+x^2}$;$\frac{1}{a}\arctan\left(\frac{x}{a}\right) + C$
+Integrale di $\frac{1}{\sqrt{a^2-x^2}}$;$\arcsin\left(\frac{x}{a}\right) + C$
+Integrale di $\tan(x)$;$-\ln|\cos x| + C$
+Integrale di $\cot(x)$;$\ln|\sin x| + C$
+MacLaurin di $\sin(x)$;$x - \frac{x^3}{3!} + \frac{x^5}{5!} - \dots + o(x^{2n+1})$
+MacLaurin di $\cos(x)$;$1 - \frac{x^2}{2!} + \frac{x^4}{4!} - \dots + o(x^{2n})$
+MacLaurin di $e^x$;$1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \dots + o(x^n)$
+MacLaurin di $\ln(1+x)$;$x - \frac{x^2}{2} + \frac{x^3}{3} - \dots + o(x^n)$
+MacLaurin di $(1+x)^\alpha$ (Binomiale);$1 + \alpha x + \frac{\alpha(\alpha-1)}{2}x^2 + \dots + o(x^n)$
+MacLaurin di $\arctan(x)$;$x - \frac{x^3}{3} + \frac{x^5}{5} - \dots + o(x^{2n+1})$
+Sviluppo di $f(kx)$ (es. $\sin(2x)$);Sostituisci $x$ con $(kx)$. Ricorda: $(kx)^n = k^n x^n$.
+Formula di Taylor con resto di Peano (centro $x_0$);$P_n(x) = \sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}(x-x_0)^k + o((x-x_0)^n)$
+Serie Geometrica $\sum q^n$: Convergenza;Converge se $|q| < 1$.<br>Diverge se $q \ge 1$.<br>Irregolare se $q \le -1$.
+Somma della Serie Geometrica (da $n=0$);$S = \frac{1}{1-q}$ (se $|q|<1$)
+Serie Armonica Generalizzata $\sum \frac{1}{n^\alpha}$;Converge se $\alpha > 1$.<br>Diverge se $\alpha \le 1$.
+Criterio del Rapporto (limite $L$);$L < 1 \to$ Converge.<br>$L > 1 \to$ Diverge.<br>$L=1 \to$ Dubbio.
+Criterio della Radice (limite $L$);$L < 1 \to$ Converge.<br>$L > 1 \to$ Diverge.<br>$L=1 \to$ Dubbio.
+Confronto Asintotico ($a_n \sim b_n$);Se $a_n \sim b_n$ per $n\to\infty$, le due serie hanno lo stesso carattere.
+Limite notevole $\lim_{x \to 0} \frac{\sin x}{x}$;$1$
+Limite notevole $\lim_{x \to 0} \frac{1-\cos x}{x^2}$;$\frac{1}{2}$
+Limite notevole $\lim_{x \to 0} \frac{e^x - 1}{x}$;$1$
+Limite notevole $\lim_{x \to 0} \frac{\ln(1+x)}{x}$;$1$
+Gerarchia Infiniti ($n \to \infty$);$\ln n \ll n^\alpha \ll a^n \ll n! \ll n^n$
+Teorema della Permanenza del Segno (Dimostrazione);Enunciato: Se $\lim f(x) = l > 0$, esiste un intorno dove $f(x) > 0$.<br>Dimostrazione: Usa definizione di limite con $\epsilon = l/2$.
+Teorema del Confronto / Carabinieri (Dimostrazione);Enunciato: Se $g \le f \le h$ e $g, h \to l$, allora $f \to l$.<br>Dimostrazione: Intersezione degli intorni di $g$ e $h$.
+Continuità delle funzioni derivabili (Dimostrazione);Enunciato: $f$ derivabile $\implies f$ continua.<br>Dimostrazione: Limite dell'incremento $f(x+h)-f(x) = h \cdot \text{Rapporto Incrementale} \to 0 \cdot f' = 0$.
+Caratterizzazione derivata nulla (Dimostrazione);Usa Lagrange: $f(x_2)-f(x_1) = f'(c)(x_2-x_1) = 0 \implies f(x_1)=f(x_2)$.
+Test di Monotonia (Dimostrazione);$\Rightarrow$: Usa Lagrange ($f'(c) \ge 0 \implies f(x_2) \ge f(x_1)$).<br>$\Leftarrow$: Usa permanenza del segno sul rapporto incrementale.
+Teorema Esistenza degli Zeri / Bisezione (Dimostrazione);Costruzione successione di intervalli dimezzati $[a_n, b_n]$ che convergono a $c$. Per continuità $f(c)=0$.
+Condizione Necessaria Convergenza Serie (Dimostrazione);Se $\sum a_n$ converge $\implies a_n \to 0$.<br>Dimostrazione: $a_n = S_n - S_{n-1} \to S - S = 0$.
+Teorema Media Integrale (Dimostrazione);Usa Weierstrass (max/min) e Teorema Valori Intermedi sulla media integrale $\frac{1}{b-a}\int f$.
+Torricelli-Barrow / Funzione Integrale (Dimostrazione);Dimostra che $F'(x)=f(x)$. Usa rapporto incrementale + Media Integrale.
+Teorema Fondamentale del Calcolo (Dimostrazione);$\int_a^b f = G(b)-G(a)$.<br>Dimostrazione: $F(x) = G(x)+c$. Valuta in $a$ ($c=-G(a)$), poi in $b$.
+Criterio Confronto Integrale Serie (Dimostrazione);Confronta area rettangoli (somma serie) con area sottesa dalla funzione (integrale).
+Equazione ricorrente $x_{n+1} = a x_n$;Soluzione: $x_n = c \cdot a^n$.
+Punto Fisso ($x^*$);Un punto tale che $f(x^*) = x^*$.
+Teorema del Punto Fisso (Successioni);Se $a_{n+1}=f(a_n)$ converge a $L$ e $f$ è continua, allora $L=f(L)$.
+Stabilità Punto Fisso (Linearizzazione);$|f'(x^*)| < 1 \implies$ Stabile (attrattivo).<br>$|f'(x^*)| > 1 \implies$ Instabile (repulsivo).
+Metodo di Newton (Formula);$x_{n+1} = x_n - \frac{f(x_n)}{f'(x_n)}$
+Convergenza Metodo Newton (Dimostrazione);Convergenza Quadratica (errore al quadrato). Si dimostra sviluppando Taylor al secondo ordine attorno alla radice.
+Complessità Merge-Sort;$O(n \log n)$. (Da equazione ricorrente $T(n) = 2T(n/2) + n$).
+Diagramma a Ragnatela (Cobweb);Metodo grafico per visualizzare l'evoluzione di successioni ricorrenti usando la bisettrice $y=x$.
+Integrale improprio $\int_1^\infty \frac{1}{x^\alpha} dx$;Converge se $\alpha > 1$. Diverge se $\alpha \le 1$.
+Integrale improprio $\int_0^1 \frac{1}{x^\alpha} dx$;Converge se $\alpha < 1$. Diverge se $\alpha \ge 1$.
+Definizione asintotica $f \sim g$ ($x \to x_0$);$\lim_{x \to x_0} \frac{f(x)}{g(x)} = 1$.
+Definizione o-piccolo $f = o(g)$ ($x \to x_0$);$\lim_{x \to x_0} \frac{f(x)}{g(x)} = 0$.
+Definizione O-grande $f = O(g)$ ($x \to x_0$);$\left| \frac{f(x)}{g(x)} \right| \le K$ in un intorno di $x_0$ (il rapporto è limitato).
+Implicazione $o \to O$;Se $f = o(g)$, allora sicuramente $f = O(g)$. (Vero)
+Implicazione $\sim \to O$;Se $f \sim g$, allora sicuramente $f = O(g)$. (Vero)
+Implicazione $O \to \sim$;Falso. Esempio: $2x = O(x)$ ma il limite è 2, non 1.
+Algebra o-piccolo: somma;$o(x) + o(x) = o(x)$
+Algebra o-piccolo: prodotto;$x^n \cdot o(x^m) = o(x^{n+m})$
+Relazione asintotica e differenza;Se $f \sim g$, allora $f(x) - g(x) = o(g(x))$. (La differenza è trascurabile).
+Transitivitá asintotica;Se $f \sim g$ e $g \sim h$, allora $f \sim h$.
+Principio di sostituzione asintotica (Limiti);Nel calcolo di limiti di prodotti o quozienti, posso sostituire un fattore con uno asintoticamente equivalente. (NON vale per somme/differenze!).
+Gerarchia infiniti (simboli Landau);$\ln x = o(x^\alpha)$ per ogni $\alpha > 0$.<br>$x^n = o(a^x)$ per ogni $a > 1$.
+Caratterizzazione funzioni derivata seconda nulla (Teorema);$f''(x)=0 \iff f(x) = ax+b$ (funzione lineare).
+Caratterizzazione primitive (Teorema);Due primitive differiscono per una costante: $F(x) - G(x) = c$.
+Concavità e derivata (Teorema);$f$ convessa $\iff f'$ crescente (se $f$ derivabile).
+Successioni ricorrenti: diagramma a gradino;Visualizza orbite rimbalzando tra $y=f(x)$ e $y=x$.
