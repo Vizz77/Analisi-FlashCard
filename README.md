@@ -31,3 +31,6 @@ A modern, dark-themed FlashCard application meant to optimize your learning proc
 - Papaparse (CSV Handling)
 - KaTeX (Math Rendering)
 - Lucide React (Icons)
+
+## Deployed version
+https://vizz77.github.io/Analisi-FlashCard/
