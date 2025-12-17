@@ -62,10 +62,11 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
                     borderRadius: '16px',
                     border: '1px solid rgba(255,255,255,0.05)',
                     textAlign: 'center',
-                    fontSize: '1.2rem',
+                    fontSize: '1.5rem',
+                    fontWeight: '600',
                 }}>
-                    <h3 style={{ color: 'var(--accent-green)', marginBottom: '1rem', marginTop: 0, textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>Front</h3>
-                    <div>{renderContent(card.front)}</div>
+                    <h3 style={{ color: 'var(--accent-green)', marginBottom: '1.5rem', marginTop: 0, textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '2px', opacity: 0.8 }}>Front</h3>
+                    <div style={{ lineHeight: '1.6' }}>{renderContent(card.front)}</div>
                 </div>
 
                 {/* Back */}
@@ -86,10 +87,11 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
                     borderRadius: '16px',
                     border: '1px solid var(--accent-green)',
                     textAlign: 'center',
-                    fontSize: '1.2rem',
+                    fontSize: '1.5rem',
+                    fontWeight: '600',
                 }}>
-                    <h3 style={{ color: 'var(--text-secondary)', marginBottom: '1rem', marginTop: 0, textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '1px' }}>Back</h3>
-                    <div>{renderContent(card.back)}</div>
+                    <h3 style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', marginTop: 0, textTransform: 'uppercase', fontSize: '0.9rem', letterSpacing: '2px', opacity: 0.8 }}>Back</h3>
+                    <div style={{ lineHeight: '1.6' }}>{renderContent(card.back)}</div>
                 </div>
             </motion.div>
         </div>
