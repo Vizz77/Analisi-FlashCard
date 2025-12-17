@@ -91,3 +91,15 @@ Caratterizzazione funzioni derivata seconda nulla (Teorema);$f''(x)=0 \iff f(x) 
 Caratterizzazione primitive (Teorema);Due primitive differiscono per una costante: $F(x) - G(x) = c$.
 Concavità e derivata (Teorema);$f$ convessa $\iff f'$ crescente (se $f$ derivabile).
 Successioni ricorrenti: diagramma a gradino;Visualizza orbite rimbalzando tra $y=f(x)$ e $y=x$.
+Potenze: Prodotto stessa base ($a^n \cdot a^m$);Somma degli esponenti $a^{n+m}$.
+Potenze: Rapporto stessa base ($a^n / a^m$);Differenza degli esponenti $a^{n-m}$.
+Potenze: Potenza di potenza ($(a^n)^m$);Prodotto degli esponenti $a^{n \cdot m}$.
+Potenze: Esponente negativo ($a^{-n}$);Reciproco della base con esponente positivo $1/a^n$.
+Potenze: Esponente frazionario ($a^{m/n}$);Trasformazione in radice $\sqrt[n]{a^m}$.
+Logaritmi: Prodotto ($\log_a(x \cdot y)$);Somma dei logaritmi $\log_a(x) + \log_a(y)$.
+Logaritmi: Rapporto ($\log_a(x / y)$);Differenza dei logaritmi $\log_a(x) - \log_a(y)$.
+Logaritmi: Potenza ($\log_a(x^k)$);L'esponente diventa coefficiente $k \cdot \log_a(x)$.
+Logaritmi: Cambio base ($\log_a(b)$);Rapporto tra nuovi logaritmi $\ln(b) / \ln(a)$.
+Logaritmo come esponente ($a^{\log_a(x)}$);Identità fondamentale il risultato è l'argomento $x$.
+Trasformazione esponenziale ($e^{f(x)}$);Crescita esplosiva per $x \to \infty$ asintoto orizzontale $y=0$ per $x \to -\infty$.
+Trasformazione logaritmica ($\ln(f(x))$);Comprime i valori grandi definita solo dove $f(x) > 0$.
