@@ -103,3 +103,4 @@ Logaritmi: Cambio base ($\log_a(b)$);Rapporto tra nuovi logaritmi $\ln(b) / \ln(
 Logaritmo come esponente ($a^{\log_a(x)}$);Identità fondamentale il risultato è l'argomento $x$.
 Trasformazione esponenziale ($e^{f(x)}$);Crescita esplosiva per $x \to \infty$ asintoto orizzontale $y=0$ per $x \to -\infty$.
 Trasformazione logaritmica ($\ln(f(x))$);Comprime i valori grandi definita solo dove $f(x) > 0$.
+Primitiva (Integrale) di $\ln(x)$;$x \ln(x) - x + C$ <br><br><i>(Trucco memoria: x ln x meno x. Si dimostra per parti con fattore 1)</i>
