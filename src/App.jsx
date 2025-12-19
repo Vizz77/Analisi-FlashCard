@@ -1,108 +1,176 @@
 import React, { useState, useEffect } from 'react';
 import { parseCSV } from './utils/csv';
-import { getNextCard, updateWeight, initialWeights } from './utils/spacedRepetition';
+import { getNextCard, calculateNextReview, initialProgress } from './utils/spacedRepetition';
 import Flashcard from './components/Flashcard';
 import Controls from './components/Controls';
 import Stats from './components/Stats';
-import { Loader2 } from 'lucide-react';
-import cardsCSV from '../cards_calculus.csv?raw'; // Vite trick to load raw file content
+import DeckSelection from './components/DeckSelection';
+import { Loader2, ArrowLeft } from 'lucide-react';
+
+// Import raw CSVs
+import calculusCSV from '../cards_calculus.csv?raw';
+import lppCSV from '../cards_lpp.csv?raw';
 
 function App() {
+  const [currentDeck, setCurrentDeck] = useState(null); // 'calculus' or 'lpp'
   const [cards, setCards] = useState([]);
-  const [weights, setWeights] = useState({});
+  const [progress, setProgress] = useState({});
   const [currentCard, setCurrentCard] = useState(null);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [stats, setStats] = useState({ mastered: 0 }); // Simplified stats
+  const [loading, setLoading] = useState(false); // Only loading when switching decks
 
+  // Theme management
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const parsedCards = await parseCSV(cardsCSV);
-        setCards(parsedCards);
+    const root = document.documentElement;
+    if (currentDeck === 'lpp') {
+      root.style.setProperty('--accent-green', '#3296ff'); // Blue for LPP
+      root.style.setProperty('--accent-color', '#3296ff');
+    } else {
+      root.style.setProperty('--accent-green', '#00fa9a'); // Green for Calculus (default)
+      root.style.setProperty('--accent-color', '#00fa9a');
+    }
+  }, [currentDeck]);
 
-        // Load weights from local storage or init
-        const savedWeights = localStorage.getItem('flashcard_weights');
-        let initialW = {};
-        if (savedWeights) {
-          initialW = JSON.parse(savedWeights);
-          // Ensure all new cards are in weights
-          const brandingW = initialWeights(parsedCards);
-          initialW = { ...brandingW, ...initialW };
-        } else {
-          initialW = initialWeights(parsedCards);
-        }
+  const loadDeck = async (deckName) => {
+    setLoading(true);
+    setCurrentDeck(deckName);
+    setIsFlipped(false);
 
-        setWeights(initialW);
-        setLoading(false);
-        setCurrentCard(getNextCard(parsedCards, initialW));
-      } catch (error) {
-        console.error("Failed to load cards:", error);
-        setLoading(false);
-      }
-    };
+    try {
+      const csvContent = deckName === 'lpp' ? lppCSV : calculusCSV;
+      const parsedCards = await parseCSV(csvContent);
+      setCards(parsedCards);
 
-    loadData();
-  }, []);
+      // Load progress specific to this deck
+      const storageKey = `flashcard_progress_${deckName}`;
+      const savedProgress = localStorage.getItem(storageKey);
+      let loadedProgress = savedProgress ? JSON.parse(savedProgress) : initialProgress();
 
-  const handleRate = (info) => {
+      setProgress(loadedProgress);
+      setCurrentCard(getNextCard(parsedCards, loadedProgress));
+
+    } catch (error) {
+      console.error("Failed to load deck:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRate = (grade) => {
     if (!currentCard) return;
 
-    // info is boolean: true (correct/easy), false (wrong/hard)
-    const newWeights = updateWeight(weights, currentCard.id, info);
-    setWeights(newWeights);
-    localStorage.setItem('flashcard_weights', JSON.stringify(newWeights));
+    // grade: 0 (Again), 3 (Hard), 4 (Good), 5 (Easy)
+    const cardId = currentCard.id;
+    const oldStats = progress[cardId];
 
-    // Update stats (simple counter for 'passes' just for visual, although spaced repetition implies mastery is complex)
-    if (info) {
-      setStats(s => ({ ...s, mastered: s.mastered + 1 }));
-    }
+    const newStats = calculateNextReview(oldStats, grade);
 
-    // Pick next card
+    const updatedProgress = {
+      ...progress,
+      [cardId]: newStats
+    };
+
+    setProgress(updatedProgress);
+    localStorage.setItem(`flashcard_progress_${currentDeck}`, JSON.stringify(updatedProgress));
+
     setIsFlipped(false);
+
+    // Delay for animation?
     setTimeout(() => {
-      setCurrentCard(getNextCard(cards, newWeights));
-    }, 200); // Slight delay for animation if needed, though flip reset is instant
+      setCurrentCard(getNextCard(cards, updatedProgress));
+    }, 150);
   };
 
   const handleFlip = () => {
     setIsFlipped(!isFlipped);
   };
 
+  if (!currentDeck) {
+    return <DeckSelection onSelectDeck={loadDeck} />;
+  }
+
   if (loading) {
     return (
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '100vh', justifyContent: 'center' }}>
-        <Loader2 className="animate-spin" size={48} color="var(--accent-green)" />
-        <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>Loading your FlashCards...</p>
+        <Loader2 className="animate-spin" size={48} color="var(--accent-color)" />
+        <p style={{ marginTop: '1rem', color: 'var(--text-secondary)' }}>Loading Deck...</p>
       </div>
     );
   }
 
+  // No cards loaded yet or empty deck
   if (cards.length === 0) {
-    return <div>No cards found in CSV.</div>;
+    return <div style={{ color: 'white', padding: 20 }}>No cards found in this deck. <button onClick={() => setCurrentDeck(null)}>Go Back</button></div>;
   }
 
   return (
-    <div className="app-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%' }}>
-      <header style={{ marginBottom: '2rem', textAlign: 'center' }}>
-        <h1 style={{ fontSize: '2.5rem', fontWeight: '800', background: 'linear-gradient(to right, var(--text-primary), var(--accent-green))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0 }}>
-          FlashLearn
-        </h1>
-        <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Calculus Edition</p>
+    <div className="app-container" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '100%', minHeight: '100vh', padding: '20px' }}>
+
+      {/* Header with Back Button */}
+      <header style={{ marginBottom: '2rem', textAlign: 'center', position: 'relative', width: '100%', maxWidth: '600px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <button
+          onClick={() => setCurrentDeck(null)}
+          style={{
+            position: 'absolute',
+            left: 0,
+            background: 'none',
+            border: 'none',
+            color: 'var(--text-secondary)',
+            cursor: 'pointer',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '5px'
+          }}
+        >
+          <ArrowLeft size={20} />
+          Decks
+        </button>
+
+        <div>
+          <h1 style={{ fontSize: '2rem', fontWeight: '800', background: 'linear-gradient(to right, var(--text-primary), var(--accent-color))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', margin: 0 }}>
+            FlashLearn
+          </h1>
+          <p style={{ color: 'var(--text-secondary)', marginTop: '0.2rem', fontSize: '0.9rem', textTransform: 'capitalize' }}>
+            {currentDeck === 'lpp' ? 'LPP / Func. Prog.' : 'Calculus'} Edition
+          </p>
+        </div>
       </header>
 
-      <Flashcard
-        card={currentCard}
-        isFlipped={isFlipped}
-        onFlip={handleFlip}
-      />
+      {/* Main Flashcard Check */}
+      {currentCard ? (
+        <>
+          <Flashcard
+            card={currentCard}
+            isFlipped={isFlipped}
+            onFlip={handleFlip}
+          />
 
-      {/* Only show controls if flipped? Or always? Usually always visible or after flip. Let's show after flip to encourage thinking. */}
-      <div style={{ opacity: isFlipped ? 1 : 0.3, pointerEvents: isFlipped ? 'all' : 'none', transition: 'opacity 0.3s' }}>
-        <Controls onRate={handleRate} disabled={!isFlipped} />
-      </div>
+          <div style={{ opacity: isFlipped ? 1 : 0.3, pointerEvents: isFlipped ? 'all' : 'none', transition: 'opacity 0.3s' }}>
+            <Controls onRate={handleRate} disabled={!isFlipped} />
+          </div>
+        </>
+      ) : (
+        <div style={{ textAlign: 'center', marginTop: '3rem', color: 'var(--text-primary)' }}>
+          <h2>All caught up!</h2>
+          <p style={{ color: 'var(--text-secondary)' }}>You have no more cards due for review right now.</p>
+          <button
+            onClick={() => setCurrentDeck(null)}
+            style={{
+              marginTop: '2rem',
+              padding: '10px 20px',
+              borderRadius: '8px',
+              border: '1px solid var(--accent-color)',
+              background: 'transparent',
+              color: 'var(--accent-color)',
+              cursor: 'pointer'
+            }}
+          >
+            Choose another deck
+          </button>
+        </div>
+      )}
 
-      <Stats totalCards={cards.length} cardsMastered={stats.mastered} />
+      <Stats totalCards={cards.length} stats={progress} />
     </div>
   );
 }

@@ -1,16 +1,23 @@
-# FlashLearn - Calculus Edition
+# FlashLearn
 
-A modern, dark-themed FlashCard application meant to optimize your learning process using spaced repetition.
+A modern, dark-themed FlashCard application optimizing learning through spaced repetition. Now supporting multiple decks and course-specific themes.
 
 ## Features
-- **Smart Learning**: Uses a weighted random selection algorithm to show you cards you struggle with more often.
-- **LaTeX Support**: Renders complex mathematical formulas beautifully using KaTeX.
-- **Modern UI**: Sleek dark mode with neon green accents for a premium feel.
-- **Interactive**: Smooth flip animations and instant feedback controls.
+- **Spaced Repetition System (SRS)**: Implements the **SM-2 algorithm** (similar to Anki) to efficiently schedule reviews based on card difficulty (Again, Hard, Good, Easy).
+- **Multiple Decks**:
+    - **Calculus**: Math & Analysis (Green Theme).
+    - **LPP**: Programming Languages & Functional Programming (Blue Theme).
+- **Deck-Specific Theming**: dynamic color accents based on the selected course.
+- **LaTeX Support**: Renders complex mathematical formulas using KaTeX.
+- **Modern UI**: Sleek dark mode, glassmorphism effects, and smooth animations.
+- **Progress Tracking**: Visualizes card maturity (New, Learning, Mature).
 
 ## Setup & Installation
 
-1. **Clone the repository** (if applicable) or download the source.
+1. **Clone the repository**:
+   ```bash
+   git clone <repository_url>
+   ```
 2. **Install dependencies**:
    ```bash
    npm install
@@ -21,9 +28,11 @@ A modern, dark-themed FlashCard application meant to optimize your learning proc
    ```
 
 ## Customization
-- Replace `src/cards_calculus.csv` with your own flashcards.
-- Format: `Fronte;Retro` (Semicolon separated).
-- Supports LaTeX math enclosed in `$  $` (e.g., `$\int_0^1 x dx$`).
+- **Cards**:
+    - `src/cards_calculus.csv` (Default Calculus deck)
+    - `src/cards_lpp.csv` (LPP deck)
+- **Format**: `Fronte;Retro` (Semicolon separated).
+- **Math**: Supports standard LaTeX math enclosed in `$ ... $`.
 
 ## Technologies
 - React + Vite

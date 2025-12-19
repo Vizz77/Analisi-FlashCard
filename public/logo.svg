@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="cardGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c2621;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a0f0d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00fa9a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3296ff;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Main Card Shape -->
+  <rect x="96" y="96" width="320" height="320" rx="32" ry="32" fill="url(#cardGradient)" stroke="url(#accentGradient)" stroke-width="12" />
+  
+  <!-- Flip Arrow / Symbol -->
+  <path d="M256 160 L256 220 L300 220" stroke="#00fa9a" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M256 352 L256 292 L212 292" stroke="#3296ff" stroke-width="16" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Flip connection - stylized circle arrow look -->
+  <path d="M300 220 A 50 50 0 0 1 300 292" stroke="url(#accentGradient)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="10 10"/>
+  <path d="M212 292 A 50 50 0 0 1 212 220" stroke="url(#accentGradient)" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="10 10"/>
+
+  <!-- Text hint -->
+  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="#e0e0e0" font-family="sans-serif" font-weight="bold" font-size="24" dy="4">FL</text>
+</svg>

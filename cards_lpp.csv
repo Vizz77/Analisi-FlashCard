@@ -1,0 +1,118 @@
+# Fronte;Retro
+Cosa sono i CFU di base del corso?;6 CFU sui fondamenti della programmazione funzionale.
+Qual è il focus storico del corso?;Breve storia dei linguaggi di programmazione, con riferimento a quelli funzionali.
+Cosa si intende per 'Calcolo come riscrittura'?;Le basi dell'esecuzione dei programmi funzionali: valutare espressioni riscrivendole.
+Quali sono i concetti base delle espressioni?;Espressioni, loro tipi e tipi di base.
+Qual è un tema centrale della progettazione funzionale?;Tecniche di ricorsione.
+Quale struttura dati è fondamentale nella prima parte?;Liste e funzioni del primo ordine su liste.
+Cosa si studia riguardo la correttezza?;Dimostrazioni induttive di correttezza di programmi funzionali.
+Cosa si intende per 'Astrazione Funzionale'?;Uso di funzioni di ordine superiore e pattern di trasformazione.
+Quali tipi di dati avanzati vengono trattati?;Alberi e tipi algebrici generali.
+Il paradigma funzionale è introdotto anche in quale altro linguaggio?;Java (Introduzione alla programmazione funzionale in Java).
+Quali sono le caratteristiche del paradigma funzionale?;Astrazione, modularità e rapidità di sviluppo.
+Per cosa si presta bene il paradigma funzionale?;Manipolazione simbolica (interpreti, compilatori, analizzatori).
+Cosa richiede il paradigma funzionale rispetto a quello imperativo?;Un approccio radicalmente diverso alla programmazione.
+Come vengono descritti gli algoritmi di inferenza di tipo?;Consentono di scrivere codice senza annotazioni, calcolando i tipi automaticamente.
+Cosa sono i Tipi di Dato Parametrici in Java?;Conosciuti come Generics, nati prima nei linguaggi funzionali.
+Cosa sono le 'λ espressioni' in Java?;Funzioni anonime, introdotte in Java 8.
+Cosa sono gli 'Stream' in Java 8?;Liste infinite, concetto derivato dalla programmazione funzionale.
+Qual è l'obiettivo dei 9 CFU aggiuntivi?;Mostrare come speculazioni matematiche suggeriscano metodi alternativi di implementazione.
+Cos'è la corrispondenza di Curry-Howard?;Un esempio di connessione tra logica e programmazione (prove come programmi).
+Qual è il concetto matematico centrale della seconda parte?;Monade.
+Oltre all'I/O di Haskell, a cosa servono le Monadi?;Base per soluzioni a problemi computazionali e verifica semi-automatica.
+Qual è il contesto teorico della seconda parte?;La Teoria delle Categorie.
+Qual è l'ambizione della Teoria delle Categorie?;Identificare schemi identici in diverse branche della matematica.
+Qual è il principio base della Teoria delle Categorie?;Generalizzazione di funzioni (frecce) e composizione.
+Cosa sono i 'pattern' nella Teoria delle Categorie?;Insiemi di oggetti e frecce con proprietà universali.
+A cosa somigliano i pattern categoriali in informatica?;Interfacce di classi o tipi di dato astratto.
+Cosa sono le Categorie di Kleisli in Haskell?;Relazionate ai Funtori Applicativi e Monadici (Monadi di Haskell).
+Cos'è 'IO a' in Haskell?;Un esempio di Monade (o Funtore Applicativo Monadico).
+Come sarà il metodo didattico della seconda parte?;Alternanza tra teoria e sperimentazione in Haskell.
+Chi è l'autore del corso (implicito dal contesto)?;Docente di LPP.
+Cos'è una funzione pura?;Una funzione il cui output dipende solo dall'input e non ha side effects.
+Cos'è la trasparenza referenziale?;Un'espressione può essere sostituita dal suo valore senza cambiare il comportamento del programma.
+Cos'è la ricorsione?;Una funzione che chiama se stessa per risolvere sottoproblemi.
+Cos'è la ricorsione di coda (Tail Recursion)?;Ricorsione dove la chiamata ricorsiva è l'ultima operazione eseguita.
+Vantaggio della Tail Recursion?;Può essere ottimizzata dal compilatore in un ciclo (TCO).
+Cos'è una lista in programmazione funzionale?;Una struttura dati ricorsiva (Testa e Coda).
+Cos'è la funzione 'map'?;Applica una funzione a ogni elemento di una lista restituendo una nuova lista.
+Cos'è la funzione 'filter'?;Seleziona elementi di una lista che soddisfano un predicato.
+Cos'è la funzione 'fold' (o reduce)?;Combina gli elementi di una lista in un singolo valore usando una funzione accumulatore.
+Cos'è una funzione di ordine superiore?;Una funzione che prende altre funzioni come argomenti o restituisce una funzione.
+Cos'è il Currying?;Trasformare una funzione con n argomenti in una catena di n funzioni con un solo argomento.
+Cos'è l'applicazione parziale?;Fissare alcuni argomenti di una funzione producendo una nuova funzione con meno argomenti.
+Cos'è un Tipo Algebrico (ADT)?;Un tipo definito componendo altri tipi (Somma e Prodotto).
+Cos'è un Tipo Somma?;Un tipo che può assumere uno tra diversi valori alternativi (es. Enum con dati).
+Cos'è un Tipo Prodotto?;Un tipo che contiene più valori contemporaneamente (es. Tuple, Record).
+Cos'è il Pattern Matching?;Meccanismo per controllare un valore contro un pattern e destrutturarlo.
+Vantaggio del Pattern Matching?;Permette definizioni di funzioni chiare e concise basate sulla struttura dei dati.
+Cos'è l'inferenza di tipo?;Il compilatore deduce il tipo delle espressioni senza dichiarazioni esplicite.
+Cos'è il polimorfismo parametrico?;Scrivere funzioni che operano su tipi generici (es. lista di qualsiasi tipo).
+Che relazione c'è tra induzione matematica e ricorsione?;La ricorsione è l'analogo computazionale dell'induzione.
+Come si dimostra una proprietà sulle liste?;Caso base (lista vuota) e Passo induttivo (assumendo vero per coda, dimostro per lista intera).
+Cos'è una Lambda Expression?;Una funzione anonima definita al volo.
+Sintassi Lambda in Haskell (esempio);`\x -> x + 1`
+Sintassi Lambda in Java 8 (esempio);`x -> x + 1`
+Cos'è la valutazione pigra (Lazy Evaluation)?;Calcolare un'espressione solo quando il suo risultato è richiesto.
+Vantaggio della Lazy Evaluation?;Permette di gestire strutture dati infinite e ottimizza calcoli non necessari.
+Svantaggio della Lazy Evaluation?;Rende più difficile prevedere l'uso di memoria e tempo.
+Cos'è una Monade (in breve)?;Un pattern di progetto per gestire computazioni con contesti (es. I/O, Errori, Stato).
+Quali sono le due operazioni fondamentali di una Monade?;`return` (o pure) e `bind` (>>=).
+Cosa fa `return` (pure) in una Monade?;Inserisce un valore nel contesto monadico.
+Cosa fa `bind` (>>=) in una Monade?;Compone sequenzialmente computazioni monadiche.
+Esempio di Monade `Maybe`?;Gestisce calcoli che possono fallire (Just valore o Nothing).
+Esempio di Monade `List`?;Gestisce calcoli non deterministici (più risultati possibili).
+In che modo Java 8 supporta lo stile funzionale?;Interfacce funzionali, Lambda, Stream API, Optional.
+Cos'è `Optional` in Java?;Simile alla monade Maybe, gestisce la presenza o assenza di valore.
+Differenza tra programmazione Imperativa e Dichiarativa?;Imperativa: COME fare (passaggi); Dichiarativa: COSA voglio (risultato).
+Perchè i linguaggi funzionali sono utili per la concorrenza?;L'immutabilità dei dati riduce problemi di race conditions e locking.
+Cos'è un Functore?;Un tipo che può essere mappato (ha una funzione `fmap` o `map`).
+Legge dei Functori: Identità;`fmap id = id`
+Cos'è un Applicative Functor?;Un funtore con operazioni per applicare funzioni contenute in un contesto.
+Differenza tra Functor, Applicative e Monad?;Potenza espressiva crescente nella composizione di effetti.
+Cos'è l'immutabilità?;Una volta creato, un oggetto non può essere modificato.
+Come si "modifica" una struttura dati immutabile?;Si crea una copia con le modifiche desiderate (spesso condividendo struttura).
+Cos'è una Closure?;Una funzione che cattura l'ambiente (variabili) in cui è stata definita.
+Cos'è l'Haskell?;Un linguaggio funzionale puro, pigro e staticamente tipizzato.
+Ruolo del compilatore in Haskell?;Molto rigoroso, aiuta a prevenire molti bug a tempo di compilazione.
+Cos'è GHC?;Glasgow Haskell Compiler, il compilatore standard per Haskell.
+Cosa significa che le funzioni sono "cittadini di prima classe"?;Possono essere passate come argomenti, restituite e assegnate a variabili.
+Cos'è un effetto collaterale (side effect)?;Modifica di stati esterni o I/O durante l'esecuzione di una funzione.
+Perché Haskell isola gli effetti collaterali?;Per mantenere la purezza e la prevedibilità del codice (usando Monade IO).
+Cosa studia la Semantica dei linguaggi?;Il significato matematico dei programmi.
+Cos'è un interprete?;Programma che esegue direttamente il codice sorgente o intermedio.
+Cos'è un compilatore?;Programma che traduce il codice in linguaggio macchina o altro formato.
+Relazione tra Lambda Calcolo e Programmazione Funzionale?;Il Lambda Calcolo è il modello teorico alla base dei linguaggi funzionali.
+Chi ha inventato il Lambda Calcolo?;Alonzo Church.
+Cos'è un tipo ricorsivo?;Un tipo definito in termini di se stesso (es. Lista = Vuota | Elem : Lista).
+Cos'è un Albero Binario in Haskell?;`data Tree a = Empty | Node a (Tree a) (Tree a)`
+Come si attraversa un albero in modo funzionale?;Usando ricorsione e pattern matching.
+Cos'è l'arity di una funzione?;Il numero di argomenti che accetta.
+Vantaggio dello stile "Point-free"?;Definire funzioni componendo altre funzioni senza menzionare esplicitamente gli argomenti.
+Esempio di composizione funzioni (matematica);(f ∘ g)(x) = f(g(x))
+Operatore composizione in Haskell;`.` (punto), es: `f . g`
+Cos'è una Typeclass in Haskell?;Simile a un'interfaccia, definisce comportamenti comuni per tipi diversi.
+Esempio di Typeclass comune?;Eq (uguaglianza), Ord (ordinamento), Show (convertibile in stringa).
+Vincolo di tipo (Type Constraint);Limitare i tipi generici a quelli che implementano una certa Typeclass (es. `Eq a => ...`).
+Cos'è il tipo `Unit` (o `()`)?;Tipo con un solo valore, simile a `void` ma è un valore reale.
+Cos'è una tupla?;Collezione ordinata di elementi di tipi possibilmente diversi e lunghezza fissa.
+Cosa significa "Tutto è un'espressione" in funzionale?;Ogni costrutto (if, let, case) restituisce un valore.
+Perché imparare la programmazione funzionale rende migliori programmatori?;Insegna a pensare in modo astratto, a gestire la complessità e a scrivere codice più pulito.
+Cosa significa "Calcolo dei tipi" (Type Checking)?;Verifica della coerenza dei tipi nel programma.
+Che tipo ha la funzione `map`?;`(a -> b) -> [a] -> [b]`
+Che tipo ha la funzione `filter`?;`(a -> Bool) -> [a] -> [a]`
+Che tipo ha la funzione `(+)` in Haskell?;`Num a => a -> a -> a`
+Cos'è un predicato?;Una funzione che restituisce un booleano.
+Significato di "Stateless";Senza stato interno mutabile che persiste tra le chiamate.
+Confronto: Loop vs Ricorsione;Nei funzionali puri non ci sono loop (for/while), si usa solo la ricorsione.
+Cos'è un "thunk"?;Una computazione sospesa (non ancora valutata) nella valutazione pigra.
+Perchè Java ha introdotto lambda e stream?;Per sfruttare il parallelismo (multicore) più facilmente e ridurre verbosità.
+Cosa significa "First-class functions"?;Funzioni come valori di prima classe.
+Linguaggi funzionali storici?;Lisp, ML, Miranda, Scheme.
+Influenza funzionale su JavaScript?;JS ha funzioni di prima classe, closure e metodi array come map/reduce.
+Cos'è un "Pure Function" test?;Facile da testare perché non richiede mock di stato o database.
+Cos'è `foldr` (fold right)?;Accorpa la lista partendo da destra.
+Cos'è `foldl` (fold left)?;Accorpa la lista partendo da sinistra.
+Quale fold funziona su liste infinite?;`foldr` (se la funzione combinatrice è non-rigida nel secondo argomento).
+Cos'è un "side effect" positivo?;I/O necessario (stampare a schermo, scrivere file), gestito controllatamente.
+Cos'è la "referential transparency"?;Sostituibilità di un termine con il suo valore.
