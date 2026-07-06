@@ -9,11 +9,19 @@ import { Loader2, ArrowLeft } from 'lucide-react';
 
 // Import raw CSVs
 import calculusCSV from '../cards_calculus.csv?raw';
+import theoremAnalysisCSV from '../cards_teoremi_analisi.csv?raw';
 import lppCSV from '../cards_lpp.csv?raw';
 import soCSV from '../cards_so.csv?raw';
 
+const deckLabels = {
+  calculus: 'Calculus',
+  theoremAnalysis: 'Solo Teoremi Analisi',
+  lpp: 'LPP / Func. Prog.',
+  so: 'SO',
+};
+
 function App() {
-  const [currentDeck, setCurrentDeck] = useState(null); // 'calculus' or 'lpp'
+  const [currentDeck, setCurrentDeck] = useState(null);
   const [cards, setCards] = useState([]);
   const [progress, setProgress] = useState({});
   const [currentCard, setCurrentCard] = useState(null);
@@ -29,6 +37,9 @@ function App() {
     } else if (currentDeck === 'so') {
       root.style.setProperty('--accent-green', '#ff6b35'); // Orange for SO
       root.style.setProperty('--accent-color', '#ff6b35');
+    } else if (currentDeck === 'theoremAnalysis') {
+      root.style.setProperty('--accent-green', '#f5c542'); // Gold for theorem analysis
+      root.style.setProperty('--accent-color', '#f5c542');
     } else {
       root.style.setProperty('--accent-green', '#00fa9a'); // Green for Calculus (default)
       root.style.setProperty('--accent-color', '#00fa9a');
@@ -41,7 +52,13 @@ function App() {
     setIsFlipped(false);
 
     try {
-      const csvContent = deckName === 'so' ? soCSV : deckName === 'lpp' ? lppCSV : calculusCSV;
+      const csvContent = deckName === 'so'
+        ? soCSV
+        : deckName === 'lpp'
+          ? lppCSV
+          : deckName === 'theoremAnalysis'
+            ? theoremAnalysisCSV
+            : calculusCSV;
       const parsedCards = await parseCSV(csvContent);
       setCards(parsedCards);
 
@@ -135,7 +152,7 @@ function App() {
             FlashLearn
           </h1>
           <p style={{ color: 'var(--text-secondary)', marginTop: '0.2rem', fontSize: '0.9rem', textTransform: 'capitalize' }}>
-            {currentDeck === 'lpp' ? 'LPP / Func. Prog.' : 'Calculus'} Edition
+            {deckLabels[currentDeck] ?? 'Calculus'} Edition
           </p>
         </div>
       </header>

@@ -6,6 +6,7 @@ A modern, dark-themed FlashCard application optimizing learning through spaced r
 - **Spaced Repetition System (SRS)**: Implements the **SM-2 algorithm** (similar to Anki) to efficiently schedule reviews based on card difficulty (Again, Hard, Good, Easy).
 - **Multiple Decks**:
     - **Calculus**: Math & Analysis (Green Theme).
+    - **Solo Teoremi Analisi**: Analysis theorem cards extracted from Calculus (Gold Theme).
     - **LPP**: Programming Languages & Functional Programming (Blue Theme).
 - **Deck-Specific Theming**: dynamic color accents based on the selected course.
 - **LaTeX Support**: Renders complex mathematical formulas using KaTeX.
@@ -29,8 +30,9 @@ A modern, dark-themed FlashCard application optimizing learning through spaced r
 
 ## Customization
 - **Cards**:
-    - `src/cards_calculus.csv` (Default Calculus deck)
-    - `src/cards_lpp.csv` (LPP deck)
+    - `cards_calculus.csv` (Default Calculus deck)
+    - `cards_teoremi_analisi.csv` (Solo Teoremi Analisi deck)
+    - `cards_lpp.csv` (LPP deck)
 - **Format**: `Fronte;Retro` (Semicolon separated).
 - **Math**: Supports standard LaTeX math enclosed in `$ ... $`.
 

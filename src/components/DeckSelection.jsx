@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Code } from 'lucide-react';
+import { BookOpen, Code, ScrollText } from 'lucide-react';
 
 const DeckSelection = ({ onSelectDeck }) => {
     return (
@@ -55,6 +55,38 @@ const DeckSelection = ({ onSelectDeck }) => {
                     <BookOpen size={48} color="#00fa9a" style={{ marginBottom: '1.5rem' }} />
                     <h2 style={{ fontSize: '1.5rem', margin: 0 }}>Calculus</h2>
                     <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Math & Analysis</p>
+                </button>
+
+                <button
+                    onClick={() => onSelectDeck('theoremAnalysis')}
+                    style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '200px',
+                        height: '250px',
+                        backgroundColor: 'var(--bg-secondary)',
+                        border: '2px solid rgba(245, 197, 66, 0.3)',
+                        borderRadius: '16px',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        color: 'var(--text-primary)'
+                    }}
+                    onMouseEnter={e => {
+                        e.currentTarget.style.transform = 'translateY(-5px)';
+                        e.currentTarget.style.borderColor = '#f5c542';
+                        e.currentTarget.style.boxShadow = '0 10px 30px -10px rgba(245, 197, 66, 0.3)';
+                    }}
+                    onMouseLeave={e => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.borderColor = 'rgba(245, 197, 66, 0.3)';
+                        e.currentTarget.style.boxShadow = 'none';
+                    }}
+                >
+                    <ScrollText size={48} color="#f5c542" style={{ marginBottom: '1.5rem' }} />
+                    <h2 style={{ fontSize: '1.25rem', lineHeight: 1.2, margin: 0, textAlign: 'center' }}>Solo Teoremi Analisi</h2>
+                    <p style={{ color: 'var(--text-secondary)', marginTop: '0.5rem' }}>Analysis Theorems</p>
                 </button>
 
                 <button
