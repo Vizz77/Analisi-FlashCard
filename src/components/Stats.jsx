@@ -5,7 +5,6 @@ const Stats = ({ totalCards, stats }) => {
 
     let newCards = 0;
     let learning = 0;
-    let review = 0;
     let mature = 0;
 
     // Anki logic approximation:
@@ -15,8 +14,6 @@ const Stats = ({ totalCards, stats }) => {
 
     // "Review" usually means currently Due, but here we can categorise by status.
     // Let's stick to status buckets.
-
-    const now = Date.now();
 
     if (stats) {
         // Iterate over all known cards in stats

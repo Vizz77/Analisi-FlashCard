@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import 'katex/dist/katex.min.css';
 import { InlineMath } from 'react-katex';
 import './Flashcard.css';
@@ -8,6 +8,15 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
     // Parsing content to detect LaTeX vs normal text could be complex.
     // For this simplified version, we assume the content is mixed. 
     // We can use a regex to split by $...$ for inline math.
+
+    const renderTextWithBreaks = (text, keyPrefix) => {
+        return text.split(/<br\s*\/?>/i).map((line, index, lines) => (
+            <React.Fragment key={`${keyPrefix}-${index}`}>
+                {line}
+                {index < lines.length - 1 && <br />}
+            </React.Fragment>
+        ));
+    };
 
     const renderContent = (text) => {
         if (!text) return "";
@@ -23,7 +32,7 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
                         return <InlineMath key={index}>{part}</InlineMath>;
                     } else {
                         // It's text
-                        return <span key={index}>{part}</span>;
+                        return <span key={index}>{renderTextWithBreaks(part, index)}</span>;
                     }
                 })}
             </>
@@ -32,7 +41,7 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
 
     return (
         <div className="flashcard-container" onClick={onFlip}>
-            <motion.div
+            <Motion.div
                 className="flashcard-inner"
                 initial={false}
                 animate={{ rotateY: isFlipped ? 180 : 0 }}
@@ -49,7 +58,7 @@ const Flashcard = ({ card, isFlipped, onFlip }) => {
                     <h3 className="flashcard-title flashcard-title--back">Back</h3>
                     <div className="flashcard-content">{renderContent(card.back)}</div>
                 </div>
-            </motion.div>
+            </Motion.div>
         </div>
     );
 };
